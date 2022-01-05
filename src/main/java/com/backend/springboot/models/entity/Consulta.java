@@ -3,6 +3,7 @@ package com.backend.springboot.models.entity;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -42,8 +43,8 @@ public class Consulta implements Serializable {
     private Paciente paciente;
 
     // relacion de muchas consultas para un medico
-    // @NotNull(message = "Debe seleccionar un especialista")
     //@JoinColumn(name = "medico_id")
+    //@NotNull(message = "Debe seleccionar un especialista")
     @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
     @ManyToOne(fetch = FetchType.LAZY)
     private Medico medico;

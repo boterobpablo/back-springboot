@@ -57,7 +57,7 @@ public class Paciente implements Serializable {
     @Column(name = "estado_civil")
     private String estadoCivil;
 
-    // Relacion de un cliente para muchas consultass
+    // Relacion de un cliente para muchas consultas
     @JsonIgnoreProperties({"paciente", "hibernateLazyInitializer", "handler"})
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "paciente", cascade = CascadeType.ALL)
     private List<Consulta> consultas;
