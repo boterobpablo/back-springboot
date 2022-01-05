@@ -3,6 +3,7 @@ package com.backend.springboot.models.services;
 import com.backend.springboot.models.dao.IConsultaDao;
 import com.backend.springboot.models.dao.IPacienteDao;
 import com.backend.springboot.models.entity.Consulta;
+import com.backend.springboot.models.entity.Medico;
 import com.backend.springboot.models.entity.Paciente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +20,7 @@ public class PacienteServiceImpl implements IPacienteService {
     private IPacienteDao pacienteDao;
 
     @Autowired
-    public IConsultaDao consultaDao;
+    private IConsultaDao consultaDao;
 
     // IMPLEMENTAR METODOS
 
@@ -70,6 +71,13 @@ public class PacienteServiceImpl implements IPacienteService {
     @Transactional
     public void deleteConsultaById(Long id) {
         consultaDao.deleteById(id);
+    }
+
+    // metodo para listar todos los medicos
+    @Override
+    @Transactional(readOnly = true)
+    public List<Medico> findAllMedicos() {
+        return consultaDao.findAllMedicos();
     }
 
 

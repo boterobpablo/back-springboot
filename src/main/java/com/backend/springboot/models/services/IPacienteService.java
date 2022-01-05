@@ -1,6 +1,7 @@
 package com.backend.springboot.models.services;
 
 import com.backend.springboot.models.entity.Consulta;
+import com.backend.springboot.models.entity.Medico;
 import com.backend.springboot.models.entity.Paciente;
 
 import java.util.List;
@@ -27,5 +28,8 @@ public interface IPacienteService {
 
     // Metodo para eliminar consulta
     public void deleteConsultaById(Long id);
+
+    // Metodo para listar todos los medicos
+    public List<Medico> findAllMedicos();
 
 }

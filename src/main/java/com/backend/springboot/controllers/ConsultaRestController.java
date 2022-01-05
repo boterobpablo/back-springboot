@@ -1,6 +1,7 @@
 package com.backend.springboot.controllers;
 
 import com.backend.springboot.models.entity.Consulta;
+import com.backend.springboot.models.entity.Medico;
 import com.backend.springboot.models.services.IPacienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -36,6 +37,12 @@ public class ConsultaRestController {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void delete(@PathVariable Long id){
         pacienteService.deleteConsultaById((id));
+    }
+
+    // OBTENER TODOS LOS MEDICOS
+    @GetMapping("/consultas/medicos")
+    public List<Medico> listarMedicos() {
+        return pacienteService.findAllMedicos();
     }
 
 }
